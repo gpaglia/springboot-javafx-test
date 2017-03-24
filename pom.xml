@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>de.roskenet</groupId>
   <artifactId>springboot-javafx-test</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
 
   <name>springboot-javafx-test</name>
   <description>Test support for Spring Boot and JavaFX 8</description>
@@ -21,9 +21,9 @@
   </properties>
 
   <scm>
-    <connection>git@github.com:roskenet/springboot-javafx-support.git</connection>
-    <developerConnection>git@github.com:roskenet/springboot-javafx-support.git</developerConnection>
-    <url>https://github.com/roskenet/springboot-javafx-support</url>
+    <connection>git@github.com:roskenet/springboot-javafx-test.git</connection>
+    <developerConnection>git@github.com:roskenet/springboot-javafx-test.git</developerConnection>
+    <url>https://github.com/roskenet/springboot-javafx-test</url>
   </scm>
 
   <developers>
