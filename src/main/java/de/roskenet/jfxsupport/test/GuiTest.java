@@ -1,6 +1,7 @@
 package de.roskenet.jfxsupport.test;
 
 import org.assertj.core.util.Preconditions;
+import org.junit.BeforeClass;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -13,16 +14,32 @@ import javafx.stage.Stage;
 
 public class GuiTest extends ApplicationTest implements ApplicationContextAware {
 
+    @BeforeClass
+    public static void setHeadlessMode() {
+        String headlessProp = System.getProperty("JAVAFX_HEADLESS", "true");
+        Boolean headless = Boolean.valueOf(headlessProp);
+        String geometryProp = System.getProperty("JAVAFX_GEOMETRY", "1600x1200-32");
+        
+        if (headless) {
+            System.setProperty("testfx.robot", "glass");
+            System.setProperty("testfx.headless", "true");
+            System.setProperty("prism.order", "sw");
+            System.setProperty("java.awt.headless", "true");
+            System.setProperty("headless.geometry", geometryProp);
+        } else {
+            System.setProperty("java.awt.headless", "false");
+        }
+    }
+    
+    public static boolean headless;
+    public static String geometry;
+    
     private ApplicationContext appCtx;
     private AbstractFxmlView viewBean;
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.appCtx = applicationContext;
-        boolean headless = appCtx.getEnvironment().getProperty("guitests.headless", Boolean.class, Boolean.FALSE);
-        String geometry = appCtx.getEnvironment().getProperty("guitests.geometry", String.class, "1600x1200-64");
-        
-        setHeadless(headless, geometry);
     }
 
     protected void init(Class<? extends AbstractFxmlView> viewClass) throws Exception {
@@ -34,21 +51,21 @@ public class GuiTest extends ApplicationTest implements ApplicationContextAware 
         super.init();
         this.viewBean = viewBean;
     }
-    
-    public static void setHeadless(boolean headless, String geometry) {
-        if (headless) {
-            System.setProperty("testfx.robot", "glass");
-            System.setProperty("glass.platform", "Monocle");
-            System.setProperty("monocle.platform", "Headless");
-            System.setProperty("testfx.headless", "true");
-            System.setProperty("prism.order", "sw");
-            System.setProperty("prism.text", "t2k");
-            System.setProperty("java.awt.headless", "true");
-            System.setProperty("headless.geometry", geometry);
-        } else {
-            System.setProperty("java.awt.headless", "false");
-        }
-    }
+   
+//    public static void setHeadless() {
+//        if (headless) {
+//            System.setProperty("testfx.robot", "glass");
+//            System.setProperty("glass.platform", "Monocle");
+//            System.setProperty("monocle.platform", "Headless");
+//            System.setProperty("testfx.headless", "true");
+//            System.setProperty("prism.order", "sw");
+//            System.setProperty("prism.text", "t2k");
+//            System.setProperty("java.awt.headless", "true");
+//            System.setProperty("headless.geometry", geometry);
+//        } else {
+//            System.setProperty("java.awt.headless", "false");
+//        }
+//    }
 
 //  @After
 //  public void tearDown() throws Exception {
