@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>de.roskenet</groupId>
   <artifactId>springboot-javafx-test</artifactId>
-  <version>1.0.1</version>
+  <version>1.3.0</version>
 
   <name>springboot-javafx-test</name>
   <description>Test support for Spring Boot and JavaFX 8</description>
@@ -13,9 +13,9 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <springframework.version>4.3.7.RELEASE</springframework.version>
-    <springboot-javafx-support.version>1.3.0</springboot-javafx-support.version>
-    <springboot.version>1.5.2.RELEASE</springboot.version>
+    <springframework.version>5.0.0.RELEASE</springframework.version>
+    <springboot-javafx-support.version>2.1.5</springboot-javafx-support.version>
+    <springboot.version>2.0.0.RELEASE</springboot.version>
     <testfx.version>4.0.5-alpha</testfx.version>
     <monocle.version>8u20-b26</monocle.version>
   </properties>
