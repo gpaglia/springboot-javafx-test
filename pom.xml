@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>de.roskenet</groupId>
   <artifactId>springboot-javafx-test</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.1-gp</version>
 
   <name>springboot-javafx-test</name>
   <description>Test support for Spring Boot and JavaFX 8</description>
@@ -13,11 +13,11 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <springframework.version>4.3.7.RELEASE</springframework.version>
-    <springboot-javafx-support.version>1.3.0</springboot-javafx-support.version>
-    <springboot.version>1.5.2.RELEASE</springboot.version>
-    <testfx.version>4.0.5-alpha</testfx.version>
-    <monocle.version>8u20-b26</monocle.version>
+    <springframework.version>5.0.0.RELEASE</springframework.version>
+    <springboot-javafx-support.version>1.4.1-gp3</springboot-javafx-support.version>
+    <springboot.version>2.0.0.M5</springboot.version>
+    <testfx.version>4.0.8-alpha</testfx.version>
+    <monocle.version>8u76-b04</monocle.version>
   </properties>
 
   <scm>
@@ -41,6 +41,18 @@
     </license>
   </licenses>
 
+ <repositories>
+	<repository>
+		<id>spring-milestones</id>
+		<name>Spring Milestones</name>
+		<url>https://repo.spring.io/libs-milestone</url>
+		<snapshots>
+			<enabled>false</enabled>
+		</snapshots>
+	</repository>
+  </repositories>
+  
+  
   <dependencies>
     <dependency>
       <groupId>de.roskenet</groupId>
@@ -93,31 +105,6 @@
   <build>
     <plugins>
       <plugin>
-        <groupId>org.sonatype.plugins</groupId>
-        <artifactId>nexus-staging-maven-plugin</artifactId>
-        <version>1.6.3</version>
-        <extensions>true</extensions>
-        <configuration>
-          <serverId>ossrh</serverId>
-          <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-          <autoReleaseAfterClose>true</autoReleaseAfterClose>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-gpg-plugin</artifactId>
-        <version>1.5</version>
-        <executions>
-          <execution>
-            <id>sign-artifacts</id>
-            <phase>verify</phase>
-            <goals>
-              <goal>sign</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
         <version>2.2.1</version>
@@ -148,24 +135,7 @@
         <artifactId>findbugs-maven-plugin</artifactId>
         <version>3.0.3</version>
       </plugin>
-      <plugin>
-        <groupId>org.eluder.coveralls</groupId>
-        <artifactId>coveralls-maven-plugin</artifactId>
-        <version>4.1.0</version>
-      </plugin>
-      <plugin>
-        <groupId>org.jacoco</groupId>
-        <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.7.4.201502262128</version>
-        <executions>
-          <execution>
-            <id>prepare-agent</id>
-            <goals>
-              <goal>prepare-agent</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
+      
     </plugins>
   </build>
 </project>
