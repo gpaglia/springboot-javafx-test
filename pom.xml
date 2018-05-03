@@ -17,7 +17,8 @@
     <springboot-javafx-support.version>2.1.5</springboot-javafx-support.version>
     <springboot.version>2.0.0.RELEASE</springboot.version>
     <testfx.version>4.0.5-alpha</testfx.version>
-    <monocle.version>8u20-b26</monocle.version>
+    <!--  <monocle.version>8u20-b26</monocle.version> -->
+    <monocle.version>8u76-b04</monocle.version>
   </properties>
 
   <scm>
@@ -115,6 +116,7 @@
           <autoReleaseAfterClose>true</autoReleaseAfterClose>
         </configuration>
       </plugin>
+      <!--  
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-gpg-plugin</artifactId>
@@ -129,6 +131,7 @@
           </execution>
         </executions>
       </plugin>
+      -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
